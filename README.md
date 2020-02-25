@@ -1,2 +1,0 @@
-# StepperForm
-Created with CodeSandbox

@@ -1,0 +1,186 @@
+:root {
+  --primary: #3d5afe;
+  --primary-dark: #0031ca;
+  --font-size-normal: 1rem;
+  --font-size-label-input: 0.75rem;
+}
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  line-height: 1.2;
+  font-size: var(--font-size-normal);
+  height: 100%;
+  width: 100%;
+}
+#app {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.steps {
+  position: relative;
+}
+#step1 {
+  display: initial;
+}
+#step1 .container {
+  display: block;
+}
+#login-form {
+  display: none;
+}
+#signup-form {
+  display: none;
+}
+.container {
+  margin: 16px;
+  display: none;
+}
+.container .form-group {
+  display: flex;
+  flex-direction: column;
+}
+@media only screen and (min-width: 786px) {
+  .container .form-group.hor {
+    flex-direction: row;
+  }
+}
+
+.container .form-element {
+  margin: 8px;
+}
+button {
+  padding: 8px 16px;
+  background-color: var(--primary);
+  color: white;
+  outline: none;
+  border: 1px solid var(--primary);
+  border-radius: 4px;
+  box-shadow: 0px 2px 4px rgba(61, 90, 254, 0.122),
+    0px 2px 4px rgba(61, 90, 254, 0.24);
+  transition: box-shadow 0.1s cubic-bezier(0.45, 0.05, 0.55, 0.95);
+}
+button:hover {
+  box-shadow: 0px 4px 8px rgba(61, 90, 254, 0.1442643923240938),
+    0px 3px 8px rgba(61, 90, 254, 0.24);
+}
+.group {
+  position: relative;
+  margin-bottom: 45px;
+}
+input {
+  font-size: var(--font-size-normal);
+  padding: 10px 10px 10px 5px;
+  display: block;
+  width: 300px;
+  border: none;
+  border-bottom: 1px solid var(--primary-dark);
+}
+input:focus {
+  outline: none;
+}
+
+/* LABEL ======================================= */
+label {
+  color: #999;
+  font-size: var(--font-size-normal);
+  font-weight: normal;
+  position: absolute;
+  pointer-events: none;
+  left: 5px;
+  top: 10px;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+}
+
+/* active state */
+input:focus ~ label,
+input:valid ~ label {
+  top: -20px;
+  font-size: var(--font-size-label-input);
+  color: var(--primary);
+}
+
+/* BOTTOM BARS ================================= */
+.bar {
+  position: relative;
+  display: block;
+  width: 300px;
+}
+.bar:before,
+.bar:after {
+  content: "";
+  height: 2px;
+  width: 0;
+  bottom: 1px;
+  position: absolute;
+  background: var(--primary-dark);
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+}
+.bar:before {
+  left: 50%;
+}
+.bar:after {
+  right: 50%;
+}
+
+/* active state */
+input:focus ~ .bar:before,
+input:focus ~ .bar:after {
+  width: 50%;
+}
+
+/* HIGHLIGHTER ================================== */
+.highlight {
+  position: absolute;
+  height: 60%;
+  width: 100px;
+  top: 25%;
+  left: 0;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+/* active state */
+input:focus ~ .highlight {
+  -webkit-animation: inputHighlighter 0.3s ease;
+  -moz-animation: inputHighlighter 0.3s ease;
+  animation: inputHighlighter 0.3s ease;
+}
+
+/* ANIMATIONS ================ */
+@-webkit-keyframes inputHighlighter {
+  from {
+    background: var(--primary-dark);
+  }
+  to {
+    width: 0;
+    background: transparent;
+  }
+}
+@-moz-keyframes inputHighlighter {
+  from {
+    background: var(--primary-dark);
+  }
+  to {
+    width: 0;
+    background: transparent;
+  }
+}
+@keyframes inputHighlighter {
+  from {
+    background: var(--primary-dark);
+  }
+  to {
+    width: 0;
+    background: transparent;
+  }
+}
